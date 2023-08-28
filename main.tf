@@ -13,7 +13,7 @@ provider "github" {
 }
 
 resource "github_repository" "gh_repo" {
-  name       = "${var.waypoint_project}_static_app_repo"
+  name       = "${var.waypoint_project}${var.repo_suffix}"
   visibility = "public"
 
   template {
