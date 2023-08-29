@@ -27,3 +27,17 @@ resource "github_repository" "gh_repo" {
     build_type = "workflow"
   }
 }
+
+resource "github_repository_file" "readme" {
+  repository = github_repository.gh_repo.name
+  branch     = "main"
+  file       = "README.md"
+  content = templatefile("${path.module}/templates/README.md", {
+    project_name    = var.waypoint_project,
+    destination_org = var.destination_org
+  })
+  commit_message      = "Added readme file."
+  commit_author       = "Platform team"
+  commit_email        = "no-reply@example.com"
+  overwrite_on_create = true
+}
