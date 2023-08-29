@@ -42,6 +42,17 @@ resource "github_repository_file" "readme" {
   overwrite_on_create = true
 }
 
+resource "github_repository_file" "workflow_trigger_file" {
+  repository = github_repository.gh_repo.name
+  branch     = "main"
+  file       = "app/trigger"
+  content    = ""
+  commit_message      = "Added file to trigger workflow."
+  commit_author       = "Platform team"
+  commit_email        = "no-reply@example.com"
+  overwrite_on_create = true
+}
+
 resource "github_actions_environment_secret" "slack_hook_url" {
   repository        = github_repository.gh_repo.name
   environment       = "github-pages"
