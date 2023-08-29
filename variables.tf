@@ -22,6 +22,10 @@ variable "gh_token" {
   description = "Github token with permissions to create and delete repos."
 }
 
+variable "slack_hook_url" {
+  description = "The Slack webhook URL for publishing messages."
+}
+
 variable "waypoint_project" {
   type        = string
   description = "Name of the Waypoint project."

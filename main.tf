@@ -41,3 +41,10 @@ resource "github_repository_file" "readme" {
   commit_email        = "no-reply@example.com"
   overwrite_on_create = true
 }
+
+resource "github_actions_environment_secret" "slack_hook_url" {
+  repository        = github_repository.gh_repo.name
+  environment       = "github-pages"
+  secret_name       = "SLACK_HOOK_URL"
+  plaintext_value   = var.slack_hook_url
+}
