@@ -13,7 +13,7 @@ provider "github" {
 }
 
 resource "github_repository" "gh_repo" {
-  name       = "${var.waypoint_project}"
+  name       = var.waypoint_project
   visibility = "public"
 
   template {
@@ -35,7 +35,7 @@ resource "github_repository_file" "readme" {
   content = templatefile("${path.module}/templates/README.md", {
     project_name    = var.waypoint_project,
     destination_org = var.destination_org,
-    domain = var.domain
+    domain          = var.domain
   })
   commit_message      = "Added readme file."
   commit_author       = "Platform team"
@@ -44,10 +44,10 @@ resource "github_repository_file" "readme" {
 }
 
 resource "github_repository_file" "workflow_trigger_file" {
-  repository = github_repository.gh_repo.name
-  branch     = "main"
-  file       = "app/trigger"
-  content    = ""
+  repository          = github_repository.gh_repo.name
+  branch              = "main"
+  file                = "app/trigger"
+  content             = ""
   commit_message      = "Added file to trigger workflow."
   commit_author       = "Platform team"
   commit_email        = "no-reply@example.com"
@@ -55,10 +55,10 @@ resource "github_repository_file" "workflow_trigger_file" {
 }
 
 resource "github_actions_environment_secret" "slack_hook_url" {
-  repository        = github_repository.gh_repo.name
-  environment       = "github-pages"
-  secret_name       = "SLACK_HOOK_URL"
-  plaintext_value   = var.slack_hook_url
+  repository      = github_repository.gh_repo.name
+  environment     = "github-pages"
+  secret_name     = "SLACK_HOOK_URL"
+  plaintext_value = var.slack_hook_url
 }
 
 # Add-on to create subdomain for the app
@@ -74,18 +74,18 @@ resource "aws_s3_bucket_website_configuration" "redirect" {
   bucket = "${var.waypoint_project}.${var.domain}"
 
   redirect_all_requests_to {
-        host_name = "${var.destination_org}.github.io/${var.waypoint_project}"
-      }
+    host_name = "${var.destination_org}.github.io/${var.waypoint_project}"
+  }
 }
 
 resource "aws_route53_record" "subdomain" {
   name    = "${var.waypoint_project}.${var.domain}"
-  zone_id = "${aws_route53_zone.domain.zone_id}"
+  zone_id = aws_route53_zone.domain.zone_id
   type    = "A"
 
   alias {
-    name                   = "${aws_s3_bucket_website_configuration.redirect.website_domain}"
-    zone_id                = "${aws_s3_bucket.redirect.hosted_zone_id}"
+    name                   = aws_s3_bucket_website_configuration.redirect.website_domain
+    zone_id                = aws_s3_bucket.redirect.hosted_zone_id
     evaluate_target_health = true
   }
 }
