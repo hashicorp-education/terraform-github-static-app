@@ -2,7 +2,9 @@
 
 A 2048 game reskinned with HashiCorp tools.
 
-Deployment URL: [GitHub Pages link](https://${destination_org}.github.io/${project_name}_static_app)
+GitHub Pages URL: [https://${destination_org}.github.io/${project_name}](https://${destination_org}.github.io/${project_name})
+
+Redirected URL: [http://${project_name}.${domain}](http://${project_name}.${domain})
 
 ## Update procedure
 

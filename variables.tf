@@ -13,11 +13,6 @@ variable "destination_org" {
   default     = "hashicorp-education"
 }
 
-variable "repo_suffix" {
-  description = "The suffix appended to the end of the project name to create the repo name."
-  default     = "_static_app"
-}
-
 variable "gh_token" {
   description = "Github token with permissions to create and delete repos."
 }
@@ -31,7 +26,12 @@ variable "waypoint_project" {
   description = "Name of the Waypoint project."
 
   validation {
-    condition     = !contains(["-"], var.waypoint_project)
-    error_message = "waypoint_project must not contain dashes."
+    condition     = !contains(["-","_"], var.waypoint_project)
+    error_message = "waypoint_project must not contain dashes or underscores."
   }
+}
+
+variable "domain" {
+  description = "The top level domain name used for redirects."
+  default = "hathatgames.com"
 }
