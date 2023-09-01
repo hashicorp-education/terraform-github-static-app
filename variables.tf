@@ -35,8 +35,3 @@ variable "domain" {
   description = "The top level domain name used for redirects."
   default     = "hathatgames.com"
 }
-
-variable "aws_region" {
-  description = "The AWS region to contain resources."
-  default     = "us-east-1"
-}
