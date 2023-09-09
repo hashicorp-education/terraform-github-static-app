@@ -30,8 +30,3 @@ variable "waypoint_project" {
     error_message = "waypoint_project must not contain dashes or underscores."
   }
 }
-
-variable "domain" {
-  description = "The top level domain name used for redirects."
-  default     = "hathatgames.com"
-}
