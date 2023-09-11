@@ -1,6 +1,6 @@
-# 2048
+# Static webapp template
 
-A 2048 game reskinned with HashiCorp tools.
+A template repository for building static webapps.
 
 GitHub Pages URL: [https://${destination_org}.github.io/${project_name}](https://${destination_org}.github.io/${project_name})
 
