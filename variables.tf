@@ -1,11 +1,11 @@
 variable "template_org" {
   description = "The name of the organization in Github that will contain the example app repo."
-  default     = "tunzor"
+  default     = "hashicorp-education"
 }
 
 variable "template_repo" {
   description = "The name of the repository in Github that contains the example app code."
-  default     = "2048-template"
+  default     = "learn-hcp-waypoint-static-app-template"
 }
 
 variable "destination_org" {
