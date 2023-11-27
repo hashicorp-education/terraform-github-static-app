@@ -2,7 +2,7 @@
 
 A template repository for building static webapps.
 
-GitHub Pages URL: [https://${destination_org}.github.io/${project_name}](https://${destination_org}.github.io/${project_name})
+GitHub Pages URL: [https://${destination_org}.github.io/${application_name}](https://${destination_org}.github.io/${application_name})
 
 ## Update procedure
 

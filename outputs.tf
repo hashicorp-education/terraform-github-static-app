@@ -4,6 +4,6 @@ output "repo_url" {
 }
 
 output "app_url" {
-  value       = "https://${var.destination_org}.github.io/${var.waypoint_project}"
+  value       = "https://${var.destination_org}.github.io/${var.waypoint_application}"
   description = "The URL of the app on GitHub Pages."
 }

@@ -21,12 +21,12 @@ variable "slack_hook_url" {
   description = "The Slack webhook URL for publishing messages."
 }
 
-variable "waypoint_project" {
+variable "waypoint_application" {
   type        = string
-  description = "Name of the Waypoint project."
+  description = "Name of the Waypoint application."
 
   validation {
-    condition     = !contains(["-", "_"], var.waypoint_project)
-    error_message = "waypoint_project must not contain dashes or underscores."
+    condition     = !contains(["-", "_"], var.waypoint_application)
+    error_message = "waypoint_application must not contain dashes or underscores."
   }
 }
