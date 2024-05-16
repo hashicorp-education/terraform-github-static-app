@@ -1,20 +1,20 @@
 variable "template_org" {
-  description = "The name of the organization in Github that will contain the example app repo."
+  description = "The name of the organization in GitHub that will contain the example app repo."
   default     = "hashicorp-education"
 }
 
 variable "template_repo" {
-  description = "The name of the repository in Github that contains the example app code."
+  description = "The name of the repository in GitHub that contains the example app code."
   default     = "learn-hcp-waypoint-static-app-template"
 }
 
 variable "destination_org" {
-  description = "The name of the organization in Github that will contain the templated repo."
+  description = "The name of the organization in GitHub that will contain the templated repo."
   default     = "hashicorp-education"
 }
 
 variable "gh_token" {
-  description = "Github token with permissions to create and delete repos."
+  description = "GitHub token with permissions to create and delete repos."
 }
 
 variable "slack_hook_url" {
